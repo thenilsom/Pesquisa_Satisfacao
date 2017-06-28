@@ -11,6 +11,7 @@
     <link rel='stylesheet' href='assets/fonte.css'>
     <link rel="stylesheet" href="../node_modules/angular-material/angular-material.css"/>
     <link rel="stylesheet" href="assets/app.css"/>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"/>
 
     <style type="text/css">
         /**
@@ -23,22 +24,57 @@
 
   </head>
 
-  <body ng-app="app" layout="column" ng-controller="PesquisaController as ul" ng-cloak>
+  <body ng-app="app" ng-controller="PesquisaController as ctrl" ng-cloak>
 
-    <md-toolbar layout="row">
-    <div flex-offset="5">
-      <h1>Pesquisa Satisfação</h1>
+    <div layout="row">
+      <div flex="25" hide-sm hide-xs></div>
+      <div flex="50" flex-xs = "100" flex-sm = "100">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><h3>Pesquisa Satisfação</h3></div>
+          <div class="panel-body">
+
+            <form name="formPesquisa"> 
+
+            <p>
+              <label>
+               <h4 class="label-perguntas">1. Como você avalia a simplicidade e a agilidade na contratação e operação dos seguros?</h4> 
+              </label>
+            </p>
+              <md-radio-group class = "md-primary" ng-model = "ctrl.pesquisa.pergunta1">
+                <md-radio-button  value="ruim">Ruim</md-radio-button>
+                <md-radio-button  value="regular">Regular</md-radio-button>
+                <md-radio-button  value="bom">Bom</md-radio-button>
+                <md-radio-button  value="muitoBom">Muito Bom</md-radio-button>
+                <md-radio-button  value="excelente">Excelente</md-radio-button>
+              </md-radio-group>
+              <md-input-container>
+                <label><h6>Comentários(opcional)</h6></label>
+                <textarea name="" cols="100"></textarea>
+              </md-input-container>
+            </form>
+          
+            
+          </div>
+        </div>
       </div>
-    </md-toolbar>
+      <div flex="25" hide-sm hide-xs></div>
+     
+    </div>
+    
 
-   
+    <!-- Bibliotecas Angular-Material -->
     <script src="../node_modules/angular/angular.js"></script>
     <script src="../node_modules/angular-animate/angular-animate.js"></script>
     <script src="../node_modules/angular-aria/angular-aria.js"></script>
     <script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
 
+    <!-- Bibliotecas Jquery + Boostrap -->
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
     <script src="./src/app.js"></script>
     <script src="./src/pesquisa/PesquisaController.js"></script>
+    <script src="./src/pesquisa/PesquisaService.js"></script>
     <script type="text/javascript">
 
           angular
