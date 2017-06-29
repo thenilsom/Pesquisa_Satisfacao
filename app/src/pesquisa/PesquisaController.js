@@ -14,6 +14,7 @@
 	  var self = this;
 
     self.pesquisa = pesquisaService.getPesquisa();
+     
     }
 
 })();
