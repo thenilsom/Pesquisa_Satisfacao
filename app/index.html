@@ -36,7 +36,8 @@
             <form name="formPesquisa"> 
 
               <div>
-                Por favor, avalie os pontos abaixo com notas de 1 a 5 com total sinceridade. Você não precisa se identificar. (Ver regulamento do sorteio e detalhamento dos prêmios)
+                Por favor, avalie os pontos abaixo com notas de 1 a 5 com total sinceridade. Você não precisa se identificar. <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalRegulamento"> (Ver regulamento do sorteio e detalhamento dos prêmios)</button>
+                <!-- Trigger the modal with a button -->
  
               </div>
 
@@ -167,5 +168,6 @@
 
     </script>
 
+    <div data-ng-include="'./src/pesquisa/view/modal.html'"></div>
   </body>
 </html>
