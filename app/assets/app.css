@@ -118,4 +118,19 @@ span.name {
 /************* Meus Estilos personalizados********************/
 .label-perguntas{
   color: #4FB3EC;
+  font-weight: bold;
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 700px) {
+    h4{
+        font-size: 13px!important;
+    }
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 700px) {
+    p{
+        font-size: 13px!important;
+    }
 }
