@@ -31,15 +31,25 @@
       <div flex="50" flex-xs = "100" flex-sm = "100">
         <div class="panel panel-primary">
           <div class="panel-heading"><h3>Pesquisa Satisfação</h3></div>
+          <div class="borda-header" layout-padding>
+            <h4>
+              A sua opinião ajuda-nos a melhorar e é muito importante para nós! Colabore conosco respondendo as 5 questões abaixo e ao final, adquira um cupom para concorrer a prêmios.
+              É rapidinho! 
+            </h4>
+
+            <h4>
+              Por favor, avalie os pontos abaixo com notas de 1 a 5 com total sinceridade. Você não precisa se identificar.
+            </h4>
+            
+          </div>
           <div class="panel-body">
 
             <form name="formPesquisa"> 
-
-              <div>
-                Por favor, avalie os pontos abaixo com notas de 1 a 5 com total sinceridade. Você não precisa se identificar. <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalRegulamento"> (Ver regulamento do sorteio e detalhamento dos prêmios)</button>
-                <!-- Trigger the modal with a button -->
- 
-              </div>
+              <div layout="row" layout-sm="column" layout-align="center end" layout-wrap>
+               <md-button md-no-ink class="md-primary" data-toggle="modal" data-target="#modalRegulamento">
+                 <h5>(Ver regulamento do sorteio e detalhamento dos prêmios)</h5>
+               </md-button>
+             </div>
 
             <p>
               <label>
@@ -168,6 +178,20 @@
 
     </script>
 
-    <div data-ng-include="'./src/pesquisa/view/modal.html'"></div>
+    <div id="modalRegulamento" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+         <div class="modal-body">
+          <div data-ng-include="'./src/pesquisa/view/modal.html'"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+
   </body>
 </html>

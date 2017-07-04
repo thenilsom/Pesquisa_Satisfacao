@@ -121,10 +121,28 @@ span.name {
   font-weight: bold;
 }
 
+.label-infomacao{
+  color: #6b6a6a;
+  font-weight: bold;
+}
+
+.borda-header{
+  background-color: #60B1DB;
+  color: white;
+  font-weight: bold;
+}
+
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 700px) {
     h4{
-        font-size: 13px!important;
+        font-size: 12px!important;
+    }
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 700px) {
+    h5{
+        font-size: 7px!important;
     }
 }
 
