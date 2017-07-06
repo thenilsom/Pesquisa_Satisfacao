@@ -121,16 +121,11 @@ span.name {
   font-weight: bold;
 }
 
-.label-infomacao{
+.label-informacao{
   color: #6b6a6a;
   font-weight: bold;
 }
 
-.borda-header{
-  background-color: #60B1DB;
-  color: white;
-  font-weight: bold;
-}
 
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 700px) {
@@ -142,7 +137,7 @@ span.name {
 /* Smaller than standard 960 (devices and browsers) */
 @media only screen and (max-width: 700px) {
     h5{
-        font-size: 7px!important;
+        font-size: 9px!important;
     }
 }
 
