@@ -2,7 +2,7 @@
 
   angular
        .module('app')
-       .controller('PesquisaController', ['pesquisaService',PesquisaController]);
+       .controller('PesquisaController', ['pesquisaService', '$http',PesquisaController]);
 
   /**
    * Main Controller for the Angular Material Starter App
@@ -10,11 +10,11 @@
    * @param avatarsService
    * @constructor
    */
-  function PesquisaController(pesquisaService) {
+  function PesquisaController(pesquisaService, $http) {
 	  var self = this;
 
     self.pesquisa = pesquisaService.getPesquisa();
-     
+       
     }
 
 })();
