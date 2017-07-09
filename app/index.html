@@ -20,11 +20,15 @@
         [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
           display: none !important;
         }
+        .alert{
+          padding: 10px !important;
+          margin-bottom: 0px !important;
+        }
     </style>
 
   </head>
 
-  <body ng-app="app" ng-controller="PesquisaController as ctrl" ng-cloak>
+  <body ng-app="app" ng-controller="PesquisaController" ng-cloak>
 
     <div layout="row">
       <div flex="25" hide-sm hide-xs></div>
@@ -44,18 +48,23 @@
           <div class="panel-body">
 
             <form name="formPesquisa"> 
-              <div layout="row" layout-sm="column" layout-align="center end" layout-wrap>
+              <div layout="row" layout-align="center center" layout-wrap>
                <md-button md-no-ink class="md-primary" data-toggle="modal" data-target="#modalRegulamento">
                  <h5 class="label-perguntas">(Ver regulamento do sorteio e detalhamento dos prêmios)</h5>
                </md-button>
              </div> <hr/>
 
+             <div class="alert alert-danger" ng-if="isInvalidQ1" id="validQ1"> 
+              <a class="close" aria-label="close" ng-click="sumirMsgValidacao('isInvalidQ1')">&times;</a>
+              A questão 1 é obrigatória.
+              </div>
+
             <p>
               <label>
-               <h4 class="label-perguntas">{{ctrl.pesquisa.pergunta1.pergunta}}</h4> 
+               <h4 class="label-perguntas">{{pesquisa.pergunta1.pergunta}}</h4> 
               </label>
             </p>
-              <md-radio-group class = "md-primary" ng-model = "ctrl.pesquisa.pergunta1.opcao">
+              <md-radio-group class = "md-primary" ng-model = "pesquisa.pergunta1.opcao">
                 <md-radio-button  value="ruim">1-Ruim</md-radio-button>
                 <md-radio-button  value="regular">2-Regular</md-radio-button>
                 <md-radio-button  value="bom">3-Bom</md-radio-button>
@@ -64,17 +73,21 @@
               </md-radio-group>
               <md-input-container>
                 <label><h6>Comentários(opcional)</h6></label>
-                <textarea name="pergunta1" ng-model = "ctrl.pesquisa.pergunta1.comentario"
+                <textarea name="pergunta1" ng-model = "pesquisa.pergunta1.comentario"
                  cols="100">
                </textarea>
               </md-input-container>
 
-               <p>
+              <div class="alert alert-danger" ng-if="isInvalidQ2" id="validQ2"> 
+                <a class="close" aria-label="close" ng-click="sumirMsgValidacao('isInvalidQ2')">&times;</a>
+                A questão 2 é obrigatória.
+              </div>
+            <p>
               <label>
-               <h4 class="label-perguntas">{{ctrl.pesquisa.pergunta2.pergunta}}</h4> 
+               <h4 class="label-perguntas">{{pesquisa.pergunta2.pergunta}}</h4> 
               </label>
             </p>
-              <md-radio-group class = "md-primary" ng-model = "ctrl.pesquisa.pergunta2.opcao">
+              <md-radio-group class = "md-primary" ng-model = "pesquisa.pergunta2.opcao">
                <md-radio-button  value="ruim">1-Ruim</md-radio-button>
                 <md-radio-button  value="regular">2-Regular</md-radio-button>
                 <md-radio-button  value="bom">3-Bom</md-radio-button>
@@ -83,17 +96,17 @@
               </md-radio-group>
               <md-input-container>
                 <label><h6>Comentários(opcional)</h6></label>
-                <textarea name="pergunta2" ng-model = "ctrl.pesquisa.pergunta2.comentario"
+                <textarea name="pergunta2" ng-model = "pesquisa.pergunta2.comentario"
                  cols="100">
                </textarea>
               </md-input-container>
 
                <p>
               <label>
-               <h4 class="label-perguntas">{{ctrl.pesquisa.pergunta3.pergunta}}</h4> 
+               <h4 class="label-perguntas">{{pesquisa.pergunta3.pergunta}}</h4> 
               </label>
             </p>
-              <md-radio-group class = "md-primary" ng-model = "ctrl.pesquisa.pergunta3.opcao">
+              <md-radio-group class = "md-primary" ng-model = "pesquisa.pergunta3.opcao">
                <md-radio-button  value="ruim">1-Ruim</md-radio-button>
                 <md-radio-button  value="regular">2-Regular</md-radio-button>
                 <md-radio-button  value="bom">3-Bom</md-radio-button>
@@ -102,17 +115,17 @@
               </md-radio-group>
               <md-input-container>
                 <label><h6>Comentários(opcional)</h6></label>
-                <textarea name="pergunta3" ng-model = "ctrl.pesquisa.pergunta3.comentario"
+                <textarea name="pergunta3" ng-model = "pesquisa.pergunta3.comentario"
                  cols="100">
                </textarea>
               </md-input-container>
 
                <p>
               <label>
-               <h4 class="label-perguntas">{{ctrl.pesquisa.pergunta4.pergunta}}</h4> 
+               <h4 class="label-perguntas">{{pesquisa.pergunta4.pergunta}}</h4> 
               </label>
             </p>
-              <md-radio-group class = "md-primary" ng-model = "ctrl.pesquisa.pergunta4.opcao">
+              <md-radio-group class = "md-primary" ng-model = "pesquisa.pergunta4.opcao">
                 <md-radio-button  value="ruim">1-Ruim</md-radio-button>
                 <md-radio-button  value="regular">2-Regular</md-radio-button>
                 <md-radio-button  value="bom">3-Bom</md-radio-button>
@@ -121,25 +134,28 @@
               </md-radio-group>
               <md-input-container>
                 <label><h6>Comentários(opcional)</h6></label>
-                <textarea name="pergunta4" ng-model = "ctrl.pesquisa.pergunta4.comentario"
+                <textarea name="pergunta4" ng-model = "pesquisa.pergunta4.comentario"
                  cols="100">
                </textarea>
               </md-input-container>
 
                <p>
               <label>
-               <h4 class="label-perguntas">{{ctrl.pesquisa.pergunta5.pergunta}}</h4> 
+               <h4 class="label-perguntas">{{pesquisa.pergunta5.pergunta}}</h4> 
               </label>
             </p>
               <md-radio-group class="md-primary" layout="row"
-              ng-model = "ctrl.pesquisa.pergunta5.opcao">
+              ng-model = "pesquisa.pergunta5.opcao">
                 <md-radio-button  value="um">1</md-radio-button>
                 <md-radio-button  value="dois">2</md-radio-button>
                 <md-radio-button  value="tres">3</md-radio-button>
                 <md-radio-button  value="quatro">4</md-radio-button>
                 <md-radio-button  value="cinco">5</md-radio-button>
               </md-radio-group>
-             
+
+             <div layout="row" layout-align="center center" layout-margin>
+                <md-button flex-xs="100" class="md-raised md-primary" ng-click="enviar()">enviar</md-button>
+              </div>
             </form>
           
             
