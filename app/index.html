@@ -49,9 +49,9 @@
 
             <form name="formPesquisa"> 
               <div layout="row" layout-align="center center" layout-wrap>
-               <md-button md-no-ink class="md-primary" data-toggle="modal" data-target="#modalRegulamento">
-                 <h5 class="label-perguntas">(Ver regulamento do sorteio e detalhamento dos prêmios)</h5>
-               </md-button>
+               <a href="#" data-toggle="modal" data-target="#modalRegulamento">
+               <h5 class="label-perguntas md-subhead">(Ver regulamento do sorteio e detalhamento dos prêmios)</h5>
+               </a>
              </div> <hr/>
 
              <div class="alert alert-danger" ng-if="isInvalidQ1" id="validQ1"> 
@@ -101,7 +101,11 @@
                </textarea>
               </md-input-container>
 
-               <p>
+             <div class="alert alert-danger" ng-if="isInvalidQ3" id="validQ3"> 
+              <a class="close" aria-label="close" ng-click="sumirMsgValidacao('isInvalidQ3')">&times;</a>
+              A questão 3 é obrigatória.
+            </div>
+            <p>
               <label>
                <h4 class="label-perguntas">{{pesquisa.pergunta3.pergunta}}</h4> 
               </label>
@@ -120,6 +124,10 @@
                </textarea>
               </md-input-container>
 
+              <div class="alert alert-danger" ng-if="isInvalidQ4" id="validQ4"> 
+                <a class="close" aria-label="close" ng-click="sumirMsgValidacao('isInvalidQ4')">&times;</a>
+                A questão 4 é obrigatória.
+              </div>
                <p>
               <label>
                <h4 class="label-perguntas">{{pesquisa.pergunta4.pergunta}}</h4> 
@@ -139,19 +147,33 @@
                </textarea>
               </md-input-container>
 
+              <div class="alert alert-danger" ng-if="isInvalidQ5" id="validQ5"> 
+                <a class="close" aria-label="close" ng-click="sumirMsgValidacao('isInvalidQ5')">&times;</a>
+                A questão 5 é obrigatória.
+              </div>
                <p>
               <label>
                <h4 class="label-perguntas">{{pesquisa.pergunta5.pergunta}}</h4> 
               </label>
             </p>
-              <md-radio-group class="md-primary" layout="row"
-              ng-model = "pesquisa.pergunta5.opcao">
-                <md-radio-button  value="um">1</md-radio-button>
-                <md-radio-button  value="dois">2</md-radio-button>
-                <md-radio-button  value="tres">3</md-radio-button>
-                <md-radio-button  value="quatro">4</md-radio-button>
-                <md-radio-button  value="cinco">5</md-radio-button>
-              </md-radio-group>
+
+            <div layout="row" layout-xs="column">
+            <div flex="initial"><h5 class="label-informacao md-caption"><- Improvável...</h5></div>
+              <div flex="initial"> 
+                <md-radio-group class="md-primary" layout="row" ng-model = "pesquisa.pergunta5.opcao">
+                  <md-radio-button  value="um">1</md-radio-button>
+                  <md-radio-button  value="dois">2</md-radio-button>
+                  <md-radio-button  value="tres">3</md-radio-button>
+                  <md-radio-button  value="quatro">4</md-radio-button>
+                  <md-radio-button  value="cinco">5</md-radio-button>
+                </md-radio-group>
+              </div>
+
+              <div flex="initial" flex-offset-xs="60">
+              <h5 class="label-informacao md-caption">...Muito Provável -></h5> </div>
+            </div>
+
+              
 
              <div layout="row" layout-align="center center" layout-margin>
                 <md-button flex-xs="100" class="md-raised md-primary" ng-click="enviar()">enviar</md-button>

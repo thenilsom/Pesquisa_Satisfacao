@@ -18,6 +18,23 @@
 
           function validar(){
             var isValid = true;
+            if(!$scope.pesquisa.pergunta5.opcao){
+              $scope.isInvalidQ5 = true;
+              focarElement('#validQ5');
+              isValid = false;
+            }
+
+            if(!$scope.pesquisa.pergunta4.opcao){
+              $scope.isInvalidQ4 = true;
+              focarElement('#validQ4');
+              isValid = false;
+            }
+
+            if(!$scope.pesquisa.pergunta3.opcao){
+              $scope.isInvalidQ3 = true;
+              focarElement('#validQ3');
+              isValid = false;
+            }
             if(!$scope.pesquisa.pergunta2.opcao){
               $scope.isInvalidQ2 = true;
               focarElement('#validQ2');
@@ -36,6 +53,9 @@
           resetarVariavelValidacao = function(){
             $scope.isInvalidQ1 = false;
             $scope.isInvalidQ2 = false;
+            $scope.isInvalidQ3 = false;
+            $scope.isInvalidQ4 = false;
+            $scope.isInvalidQ5 = false;
           }
 
           focarElement = function(element){
@@ -43,40 +63,4 @@
               $(element).attr("tabindex",-1).focus();
             });
           }
-    
-
-
        }]);
-
-  /**
-   * Main Controller for the Angular Material Starter App
-   * @param $mdSidenav
-   * @param avatarsService
-   * @constructor
-   
-  function PesquisaController(pesquisaService, $http) {
-	  var self = this;
-
-    self.pesquisa = pesquisaService.getPesquisa();
-    self.isInvalidQ1 = true;
-    self.enviar = enviar;
-
-    function enviar(){
-      if(validar(this.pesquisa)){
-
-      }
-    }
-
-    function validar(pesquisa){
-      if(!pesquisa.pergunta1.opcao){
-        self.isInvalidQ1 = true;
-         $('#validQ1').attr("tabindex",-1).focus();
-         return false;
-      }
-    }
-
-          
-    }
-
-})();
-*/
