@@ -1,17 +1,16 @@
   angular
        .module('app')
-       .controller('PesquisaController', ['$scope','pesquisaService', '$http', '$timeout', 
-        function($scope, pesquisaService, $http, $timeout){
+       .controller('PesquisaController', ['$scope','pesquisaService', '$http', '$timeout', 'dialogService',
+        function($scope, pesquisaService, $http, $timeout, dialog){
 
          $scope.pesquisa = pesquisaService.getPesquisa();
 
          $scope.enviar = function(){
-          resetarVariavelValidacao();
-          if(validar(this.pesquisa)){
+         if(validar(this.pesquisa)){
             $http.post('/php/teste.php/testePost', $scope.pesquisa).then(function(data){
               console.log(data.data);
             }, function(erro){
-
+              dialog.showAlert(erro.statusText);
             });
           }
         }
@@ -21,6 +20,7 @@
         }
 
           function validar(){
+            resetarVariavelValidacao();
             var isValid = true;
             if(!$scope.pesquisa.pergunta5.opcao){
               $scope.isInvalidQ5 = true;

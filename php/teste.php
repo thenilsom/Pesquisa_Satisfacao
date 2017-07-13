@@ -10,9 +10,24 @@ $app->get('/hello', function(){
 
 $app->post('/testePost', 'testarPost');
 
-function testarPost($request){
+function testarPost($request, $response){
 	$pesquisa = json_decode($request->getBody());
 	echo json_encode($pesquisa->pergunta1);
+}
+
+//retorna status 500-> erro interno do servidor
+function erroInternoServidor($response, $erro){
+return $response->withStatus(500)->withHeader('HTTP/1.1 500 Error', $erro);
+}
+
+//retorna status 400-> erro de validacao
+function erroNegocio($response, $erro){
+return $response->withStatus(400)->withHeader('HTTP/1.1 400 Error', $erro);
+}
+
+//retorna status 200-> Ok
+function requisicaoSucesso($response, $msg){
+return $response->withStatus(200)->withHeader('HTTP/1.1 200 Success', $msg);
 }
 
 $app->run();
