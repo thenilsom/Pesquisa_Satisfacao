@@ -8,7 +8,11 @@
          $scope.enviar = function(){
           resetarVariavelValidacao();
           if(validar(this.pesquisa)){
+            $http.post('/php/teste.php/testePost', $scope.pesquisa).then(function(data){
+              console.log(data.data);
+            }, function(erro){
 
+            });
           }
         }
 
